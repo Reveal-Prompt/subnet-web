@@ -1,5 +1,5 @@
-import React from 'react';
-import { AlertTriangle, Hammer, Wrench } from 'lucide-react';
+
+import { AlertTriangle } from 'lucide-react';
 
 export default function ConstructionBanner() {
   return (
