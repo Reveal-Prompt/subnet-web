@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+html, body {
+  font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", "Helvetica Neue", Arial;
+  font-size: 14px;
+}
+
+@layer base {
+  :root {
+    --background: 248 100% 99%;
+    --foreground: 236 30% 20%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 236 30% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 236 30% 20%;
+
+    --primary: 236 100% 68%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 236 100% 68%;
+
+    --secondary: 250 50% 96%;
+    --secondary-foreground: 236 30% 20%;
+
+    --muted: 250 40% 96%;
+    --muted-foreground: 236 10% 45%;
+
+    --accent: 236 100% 68%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 236 100% 68%;
+    --input: 250 30% 92%;
+    --ring: 236 100% 68%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 250 60% 97%;
+    --sidebar-foreground: 236 40% 25%;
+    --sidebar-primary: 236 100% 68%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 236 100% 68%;
+    --sidebar-accent-foreground: 236 40% 20%;
+    --sidebar-border: 250 40% 88%;
+    --sidebar-ring: 236 100% 68%;
+
+    /* Brand gradient */
+    --gradient-brand: linear-gradient(135deg, hsl(236 100% 68%), hsl(250 90% 65%));
+    
+    /* Shadows */
+    --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+    --shadow-md: 0 8px 16px -4px rgb(0 0 0 / 0.1);
+    --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  }
+
+  .dark {
+    --background: 236 30% 8%;
+    --foreground: 0 0% 95%;
+
+    --card: 236 25% 12%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 236 25% 12%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 236 100% 68%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 236 100% 68%;
+
+    --secondary: 236 20% 18%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 236 20% 15%;
+    --muted-foreground: 0 0% 65%;
+
+    --accent: 236 100% 68%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 236 20% 22%;
+    --input: 236 20% 20%;
+    --ring: 236 100% 68%;
+
+    --sidebar-background: 236 28% 10%;
+    --sidebar-foreground: 0 0% 90%;
+    --sidebar-primary: 236 100% 68%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 236 20% 16%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 236 20% 20%;
+    --sidebar-ring: 236 100% 68%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  @keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+  
+  @keyframes blink {
+    50% { border-color: transparent; }
+  }
+  
+  .typing-animation {
+    overflow: hidden;
+    border-right: 2px solid hsl(var(--primary));
+    white-space: nowrap;
+    animation: typing 3s steps(40, end), blink 0.75s step-end infinite;
+  }
+
+  @keyframes borderGlow {
+    0%, 100% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+  }
+
+  .glow-border {
+    position: relative;
+ 
+    background-size: 200% 200%;
+    animation: borderGlow 3s ease infinite;
+    padding: 1px;
+    border-radius: 1px;
+  }
+
+  .glow-border-content {
+    background: hsl(var(--card));
+    border-radius: calc(var(--radius) - 3px);
+    height: 100%;
+    width: 100%;
+  }
+}
